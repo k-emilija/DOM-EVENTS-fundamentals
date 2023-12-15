@@ -7,13 +7,15 @@
 // Highscore is being kept, you can press "Again" to play again and get new highscore
 
 /////////////////////////////////
-//
-/////////////////////////////////
+
+// CREATING A SECRET NUMBER AND A SCORE VALUE
+
 let score = 20;
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 console.log(secretNumber);
 
-//  Listening to an event - a click on a 'Check' button
+// IMPLEMENTING THE GAME LOGIC AND FUNCTIONALITY
+
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   console.log(guess, typeof guess);
@@ -55,4 +57,25 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").innerText = 0;
     }
   }
+});
+
+// RESTORE ALL THE INITIAL CONDITIONS WITH THE 'AGAIN!' BUTTON
+
+document.querySelector(".again").addEventListener("click", function () {
+  // Create a new secret number and reset the score
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+  // Reset the initial message, score inner text and number text back
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".score").innerText = score;
+  document.querySelector(".number").textContent = "?";
+
+  // Reset the input field to be empty
+  // Empty string is an absence of a value
+  document.querySelector(".guess").value = "";
+
+  // Changing the style back
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
 });
