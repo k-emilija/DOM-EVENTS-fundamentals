@@ -1,13 +1,5 @@
 "use strict";
 
-// CSS and game is not responsive; it only works on the desktop or tablet
-// Guess a number between 1 and 20
-// After each guess that we fail, the score decreases by one
-// If number is correct, you get the highscore and screen turns green
-// Highscore is being kept, you can press "Again" to play again and get new highscore
-
-/////////////////////////////////
-
 // CREATING A SECRET NUMBER AND A SCORE VALUE
 
 let score = 20;
