@@ -2,24 +2,24 @@
 
 Welcome to the "DOM Events Projects" repository! This collection showcases three interactive projects that explore the fundamentals of JavaScript in the browser, emphasizing the Document Object Model (DOM) and events.
 
-# Project 1: Number Guessing Game
+## Project 1: Number Guessing Game
 
 A simple web-based number guessing game built with HTML, CSS, and JavaScript. The player guesses a number between 1 and 20, with the score decreasing after each incorrect guess. If the correct number is guessed, the player can achieve a high score, and the screen turns green. The player can then play again.
 
-## Features
+### Features
 
 - Number guessing with informative messages.
 - High score tracking.
 - Play again functionality.
 
-# Project 2: Modal Window
+## Project 2: Modal Window
 
-## Features
+### Features
 
 
-# Project 3: The Pig Game
+## Project 3: The Pig Game
 
-## Features
+### Features
 
 
 ## How to try out the projects
