@@ -15,8 +15,14 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 console.log(secretNumber);
 
 // HIGHSCORE
+
 // The first score is always gonna be greater that the 0, and it will become the new highscore
 let highscore = 0;
+
+// Function for displaying a message
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
 
 // IMPLEMENTING THE GAME LOGIC AND FUNCTIONALITY
 
@@ -26,11 +32,11 @@ document.querySelector(".check").addEventListener("click", function () {
 
   // when there is no input
   if (!guess) {
-    document.querySelector(".message").textContent = "❌ No Number!";
+    displayMessage("❌ No Number!");
 
     // when player wins
   } else if (guess === secretNumber) {
-    document.querySelector(".message").textContent = "🥳 Correct Number!";
+    displayMessage("🥳 Correct Number!");
 
     document.querySelector(".number").textContent = secretNumber;
 
@@ -43,27 +49,20 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".highscore").textContent = highscore;
     }
 
-    // when is too high
-  } else if (guess > secretNumber) {
+    // when guess is different that the secret number
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "⬆️ Too high";
-      score--;
-      document.querySelector(".score").innerText = score;
-    } else {
-      document.querySelector(".message").textContent =
-        "🥲 You lost the game...";
-      document.querySelector(".score").innerText = 0;
-    }
+      // document.querySelector(".message").textContent =
+      //   guess > secretNumber ? "⬆️ Too high" : "⬇️ Too low";
 
-    // when is too low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector(".message").textContent = "⬇️ Too low";
+      displayMessage(guess > secretNumber ? "⬆️ Too high" : "⬇️ Too low");
+
       score--;
       document.querySelector(".score").innerText = score;
+
+      // When player has no more guesses
     } else {
-      document.querySelector(".message").textContent =
-        "🥲 You lost the game...";
+      displayMessage("🥲 You lost the game...");
       document.querySelector(".score").innerText = 0;
     }
   }
@@ -77,7 +76,7 @@ document.querySelector(".again").addEventListener("click", function () {
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
   // Reset the initial message, score inner text and number text back
-  document.querySelector(".message").textContent = "Start guessing...";
+  displayMessage("Start guessing...");
   document.querySelector(".score").innerText = score;
   document.querySelector(".number").textContent = "?";
 
