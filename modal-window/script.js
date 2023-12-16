@@ -1,9 +1,5 @@
 "use strict";
 
-//  This is a Ui component
-// No matter which of these 3 buttons I click, it will open this modal window
-// To close it, i can click on the close button or click outside of the modal window, or by clicking the escape key
-
 // NOTES:
 // We use classList.remove without the dot because it's not a query selector.
 // The dot is only needed when selecting the class with querySelector; here, we are directly passing the class name for removal.
@@ -37,3 +33,10 @@ closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
 // Closing the modal with the ESC key
+// Listening for events on the entire document, regardless of where they occur.
+// I gave the function the parameter 'event'. This works because I don't call this function here; JavaScript calls this function automatically when a keydown event happens and passes the event object as an argument.
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
