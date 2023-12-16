@@ -14,8 +14,14 @@ A simple web-based number guessing game built with HTML, CSS, and JavaScript. Th
 
 ## Project 2: Modal Window
 
+This project is a simple UI component featuring a modal window that can be triggered to open by clicking on any of the three designated buttons. Closing the modal is possible through various means: clicking the close button, clicking outside the modal window, or by pressing the Escape key.
+
 ### Features
 
+- **Button Triggers:** Open the modal by clicking any of the three designated buttons.
+- **Close Button:** Easily close the modal using the close button.
+- **Overlay Click:** Close the modal by clicking outside the modal window on the overlay.
+- **Escape Key:** Quickly close the modal by pressing the Escape key.
 
 ## Project 3: The Pig Game
 
