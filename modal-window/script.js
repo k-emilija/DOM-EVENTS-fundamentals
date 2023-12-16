@@ -19,16 +19,16 @@ const openModal = function () {
   overlay.classList.remove("hidden");
 };
 
-// FOR LOOP FOR OPENING THE MODAL WINDOW
-for (let i = 0; i < showModalBtn.length; i++) {
-  showModalBtn[i].addEventListener("click", openModal);
-}
-
 // FUNCTION FOR CLOSING THE MODAL WINDOW
 const closeModal = function () {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 };
+
+// FOR LOOP FOR OPENING THE MODAL WINDOW
+for (let i = 0; i < showModalBtn.length; i++) {
+  showModalBtn[i].addEventListener("click", openModal);
+}
 
 // Closing the modal with the X Button
 closeModalBtn.addEventListener("click", closeModal);
