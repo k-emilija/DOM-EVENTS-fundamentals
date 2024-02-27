@@ -28,7 +28,7 @@ let currentScore = 0;
 const scores = [0, 0];
 let activePlayer = 0;
 
-// Variable that tells if game is still active or not
+// Variable that tells if game is still active or not (with boolean)
 let playing = true;
 
 // SWITCHING PLAYERS FUNCTIONALITY
@@ -68,24 +68,26 @@ btnRoll.addEventListener("click", function () {
 // HOLDING THE CURRENT SCORE
 // and checking the score to see if the game needs to continue
 btnHold.addEventListener("click", function () {
-  // 1. Add current score to active player's score
-  scores[activePlayer] += currentScore;
-  // that would be scores[1] = scores[1] + currentScore;
-  document.getElementById(`score--${activePlayer}`).textContent =
-    scores[activePlayer];
+  if (playing) {
+    // 1. Add current score to active player's score
+    scores[activePlayer] += currentScore;
+    // that would be scores[1] = scores[1] + currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
 
-  // 2. Check if player's score is >= 100
-  if (scores[activePlayer] >= 20) {
-    // Finish game
-    playing = false;
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.add("player--winner");
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove("player--active");
-  } else {
-    // Switch to the next player
-    switchPlayer();
+    // 2. Check if player's score is >= 100
+    if (scores[activePlayer] >= 20) {
+      // Finish game
+      playing = false;
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add("player--winner");
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove("player--active");
+    } else {
+      // Switch to the next player
+      switchPlayer();
+    }
   }
 });
