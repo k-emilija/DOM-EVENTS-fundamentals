@@ -25,7 +25,15 @@ This project is a simple UI component featuring a modal window that can be trigg
 
 ## Project 3: The Pig Game
 
+An engaging two-player dice game where players take turns rolling a dice, accumulating scores, and strategically deciding when to hold their scores. The first player to reach a score of 100 wins the game.
+
 ### Features
+
+- **Dice Rolling:** Click the "Roll Dice" button to initiate a random dice roll.
+- **Score Tracking:** Keep track of dynamic scores for each player throughout the game.
+- **Player Switching:** Automatically switch to the next player after rolling a 1 or holding the current score.
+- **Winner Highlighting:** Visually identify the winning player with highlighted styling.
+- **New Game Button:** Reset the game and start a new round by clicking the "New Game" button, eliminating the need to reload the page.
 
 
 ## How to try out the projects
