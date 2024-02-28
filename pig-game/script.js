@@ -15,6 +15,9 @@ const btnHold = document.querySelector(".btn--hold");
 const player0El = document.querySelector(".player--0");
 const player1El = document.querySelector(".player--1");
 
+// Declaring variables in the global scope outside of the functions
+let scores, currentScore, activePlayer, playing;
+
 // FUNCTION THAT WILL INITIALIZE THE GAME
 const init = function () {
   score0El.textContent = 0;
@@ -29,17 +32,18 @@ const init = function () {
   player0El.classList.add("player--active");
   player1El.classList.remove("player--active");
 
-  // Defined Current Score outside the function
-  let currentScore = 0;
-
+  currentScore = 0;
+  scores = [0, 0];
+  activePlayer = 0;
   // Active Player - we start with player 0, because we are keeping scores in an array
   // Player 1 is stored in the 0 position, and the Player 2 is stored in the 1st
-  const scores = [0, 0];
-  let activePlayer = 0;
 
   // Variable that tells if game is still active or not (with boolean)
-  let playing = true;
+  playing = true;
 };
+
+// RUN THE INITIALIZATION
+init();
 
 // SWITCHING PLAYERS FUNCTIONALITY
 const switchPlayer = function () {
@@ -86,7 +90,7 @@ btnHold.addEventListener("click", function () {
       scores[activePlayer];
 
     // 2. Check if player's score is >= 100
-    if (scores[activePlayer] >= 15) {
+    if (scores[activePlayer] >= 100) {
       // Finish game
       playing = false;
       diceEl.classList.add("hidden");
@@ -105,4 +109,5 @@ btnHold.addEventListener("click", function () {
 });
 
 // RESETTING THE GAME
-btnNew.addEventListener("click", function () {});
+btnNew.addEventListener("click", init);
+// We don't call the fuction, it is JavaScript that will call the function as soon as we click the "new game" button - that's why we don't write init with parentheses ()
